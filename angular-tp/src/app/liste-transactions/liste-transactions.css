@@ -1,0 +1,10 @@
+.listeTransactions {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.tri {
+    padding: 10px;
+    border-bottom: 2px solid #ccc;
+}

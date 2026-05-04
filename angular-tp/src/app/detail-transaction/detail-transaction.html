@@ -1,0 +1,26 @@
+<div class="detailTransaction">
+
+    @if (detail()) {
+
+    <h2>Détails de la transaction "{{ detail().id }}"</h2>
+
+    <ul class="informations">
+        <li><strong>Date : </strong> {{ detail().date | date:'dd/MM/yyyy  HH:mm' }}</li>
+        <li><strong>Label :</strong> {{ detail().label }}</li>
+        <li><strong>Description :</strong> {{ detail().description }}</li>
+        <li>
+            <strong>Montant : </strong>
+            <span>
+                {{ detail().amount }} €
+            </span>
+        </li>
+        <li><strong>Solde après opération :</strong> {{ detail().balance }} €</li>
+    </ul>
+
+    } @else {
+    <p>
+        Aucunes informations liées à cet id
+    </p>
+    }
+
+</div>

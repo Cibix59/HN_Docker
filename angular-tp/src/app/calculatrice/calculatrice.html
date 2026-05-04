@@ -1,0 +1,38 @@
+<div class="main">
+  <h2> Calculatrice</h2>
+
+  <div>
+    <input type="number" [(ngModel)]="nombre1">
+
+    <select [(ngModel)]="operation" style="margin: 0 10px;">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+
+    <input type="number" [(ngModel)]="nombre2">
+
+    <button (click)="calculer()" style="margin-left: 10px;">Calculer</button>
+  </div>
+
+  @if(dernierResultat !== null) {
+  <h3 style="color: green;">Résultat : {{ dernierResultat }}</h3>
+  }
+
+  <h3>Historique</h3>
+  <ul>
+    @for(item of historique; track $index) {
+    <li style="margin-bottom: 5px;">
+      [{{ item.heure | date:'HH:mm:ss' }}]
+      <strong>{{ item.detail }} = {{ item.resultat }}</strong>
+
+      <button (click)="effacer($index)" style="margin-left: 15px; color: red;">
+        Effacer
+      </button>
+    </li>
+    } @empty {
+    <li style="color: gray; font-style: italic;">Historique vide</li>
+    }
+  </ul>
+</div>

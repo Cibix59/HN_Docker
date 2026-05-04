@@ -1,0 +1,49 @@
+<div class="main" >
+
+    <div>
+        <label>Nom : </label>
+        <input type="text" [(ngModel)]="nom">
+    </div>
+
+
+    <div>
+        <label>Police : </label>
+        <select [(ngModel)]="police">
+            <option value="Georgia">Georgia</option>
+
+            <option value="Arial">Arial</option>
+            <option value="Courier New">Courier</option>
+
+            <option value="Verdana">Verdana</option>
+        </select>
+    </div>
+
+
+    <div>
+        <label>Taille: </label>
+        <input type="number" [(ngModel)]="taille">
+    </div>
+
+
+    <div>
+        <p>alignement :</p>
+        <label><input type="radio" value="left" [(ngModel)]="alignement"> Gauche</label>
+        <label><input type="radio" value="center" [(ngModel)]="alignement"> Centre</label>
+        <label><input type="radio" value="right" [(ngModel)]="alignement"> Droite</label>
+    </div>
+
+
+
+    <div [ngStyle]="{
+    'font-family': police,
+    'font-size': taille + 'px',
+    'text-align': alignement
+  }">
+
+        @if(nom !=='' ) {
+        Bonjour {{ nom | uppercase }} !
+        }
+
+
+    </div>
+</div>
