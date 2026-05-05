@@ -1,4 +1,9 @@
-FROM maven:3.9-eclipse-temurin-21
+FROM eclipse-temurin:21-jdk-alpine
 WORKDIR /app
 COPY . .
-CMD ["mvn", "test"]
+
+#compilation
+RUN javac -d out src/components/*.java src/tests/*.java
+
+#execute main pour tester
+CMD ["java", "-cp", "out", "tests.Main"]
